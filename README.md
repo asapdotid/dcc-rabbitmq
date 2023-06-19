@@ -39,7 +39,9 @@ Or
 DOCKER_PROJECT_PROXY=false
 ```
 
-📖 Docker compose RabbitMQ config of `Bitnami RabbitMQ` [link](https://hub.docker.com/r/bitnami/rabbitmq)
+-   📖 Docker compose RabbitMQ config of `Bitnami RabbitMQ` [link](https://hub.docker.com/r/bitnami/rabbitmq)
+-   📖 RabbitMQ `custom.conf` custom config of [link](https://github.com/rabbitmq/rabbitmq-server/blob/v3.12.0/deps/rabbit/docs/rabbitmq.conf.example)
+-   📖 RabbitMQ `advanced.config` sample config of [link](https://github.com/rabbitmq/rabbitmq-server/blob/v3.12.0/deps/rabbit/docs/advanced.config.example)
 
 ## Troubleshoot Persisting data mount to container
 
