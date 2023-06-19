@@ -28,14 +28,14 @@ First of all:
 You could custom environment of setup proxy with Traefik on `.make/.env`:
 
 ```bash
-# Development
+# with proxy
 DOCKER_PROJECT_PROXY=true
 ```
 
 Or
 
 ```bash
-# Production
+# without proxy (default)
 DOCKER_PROJECT_PROXY=false
 ```
 
