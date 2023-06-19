@@ -1,0 +1,26 @@
+version: '3.8'
+
+networks:
+  proxy:
+    driver: bridge
+    external: true
+
+services:
+  rabbitmq3:
+    image: ${DOCKER_REGISTRY?}/${DOCKER_NAMESPACE?}/${DOCKER_IMAGE?}:${DOCKER_IMAGE_TAG?}
+    hostname: rabbitmq3
+    restart: unless-stopped
+    networks:
+      - proxy
+    ports:
+      - '${RABBITMQ_SERVER_PORT:-5672}:5672'
+      - '${RABBITMQ_MANAGEMENT_PORT:-15672}:15672'
+    environment:
+      - RABBITMQ_NODE_TYPE=${RABBITMQ_NODE_TYPE}
+      - RABBITMQ_NODE_NAME=${RABBITMQ_NODE_NAME}
+      - RABBITMQ_ERL_COOKIE=${RABBITMQ_ERL_COOKIE}
+      - RABBITMQ_PLUGINS=${RABBITMQ_PLUGINS}
+    volumes:
+      # - ${RABBITMQ_CONFIG_DIR}/custom.conf:/bitnami/rabbitmq/conf/custom.conf:ro
+      # - ${RABBITMQ_CONFIG_DIR}/advanced.config:/bitnami/rabbitmq/conf/advanced.config:ro
+      - ${RABBITMQ_DATA_DIR}:/bitnami/rabbitmq/mnesia
